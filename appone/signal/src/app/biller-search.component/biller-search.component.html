@@ -1,0 +1,16 @@
+
+Biller <search></search>
+<input
+  type="text"
+  placeholder="Search biller..."
+  (input)="onSearch($any($event.target).value)"
+/>
+
+<div *ngIf="store.loading()">Loading...</div>
+<div *ngIf="store.error()">{{ store.error() }}</div>
+
+<ul>
+  <li *ngFor="let biller of store.billers()">
+    {{ biller.name }} — {{ biller.category }}
+  </li>
+</ul>
